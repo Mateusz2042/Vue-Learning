@@ -2,7 +2,7 @@
 <div>
   <div class='searching'>
     <label class="label">Search:</label>
-    <input class="input"/>
+    <input class="input" v-model="filterText" @change="getProducts(filterText)"/>
   </div>
 <table>
   <tr>
@@ -12,26 +12,32 @@
     <th>Price</th>
     <th>Add</th>
   </tr>
-  <tr v-for='product in productsList' v-bind:key="product.id">
+  <tr v-for='product in products' v-bind:key="product.id">
     <td><img v-bind:src='product.image'/></td>
     <td>{{product.name}}</td>
     <td>{{product.description}}</td>
     <td>$ {{product.price}}</td>
-    <td><button class='button'><label class='plus'>+</label></button></td>
+    <td><button @click="addToCart(product)" class='button'><label class='plus'>+</label></button></td>
   </tr>
 </table>
 </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-  name: 'ProductsList',
+  name: "ProductsList",
+  mounted() {
+    this.getProducts();
+  },
+  methods: {
+    ...mapActions(["getProducts", "addToCart"])
+  },
   computed: {
-    productsList () {
-      return this.$store.state.products
-    }
+    ...mapGetters(["products"])
   }
-}
+};
 </script>
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
@@ -94,5 +100,4 @@ input {
   align-items: center;
   display: flex;
 }
-
 </style>
