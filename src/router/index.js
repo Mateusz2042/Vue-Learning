@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import ProductsList from '@/containers/ProductsList'
-import Basket from '@/containers/Basket'
+import Cart from '@/containers/Cart'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: ProductsList
     },
     {
-      path: '/basket',
-      name: 'Basket',
-      component: Basket
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
     }
   ]
 })
