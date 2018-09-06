@@ -12,7 +12,7 @@
     <th>Price</th>
     <th>Add</th>
   </tr>
-  <tr v-for='product in productsList'>
+  <tr v-for='product in productsList' v-bind:key="product.id">
     <td><img v-bind:src='product.image'/></td>
     <td>{{product.name}}</td>
     <td>{{product.description}}</td>
