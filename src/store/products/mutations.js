@@ -10,7 +10,13 @@ export const mutations = {
     }
   },
 
-  ADD_TO_CART (state, productId) {
-    state.productsList.find(p => p.id === productId).inventory--
+  ADD_TO_CART (state, { product, cartProductsList }) {
+    cartProductsList.push({
+      id: product.id,
+      name: product.id,
+      price: product.price,
+      description: product.description,
+      image: product.image
+    })
   }
 }

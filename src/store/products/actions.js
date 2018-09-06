@@ -9,7 +9,7 @@ export const actions = {
     })
   },
 
-  addToCart ({ commit }, product) {
-    commit(types.ADD_TO_CART, product.id)
+  addToCart ({ commit }, { product, cartProductsList }) {
+    commit(types.ADD_TO_CART, { product, cartProductsList })
   }
 }

@@ -17,7 +17,7 @@
     <td>{{product.name}}</td>
     <td>{{product.description}}</td>
     <td>$ {{product.price}}</td>
-    <td><button @click="addToCart(product)" class='button'><label class='plus'>+</label></button></td>
+    <td><button @click="addToCart({product, cartProductsList})" class='button'><label class='plus'>+</label></button></td>
   </tr>
 </table>
 </div>
@@ -35,7 +35,10 @@ export default {
     ...mapActions(["getProducts", "addToCart"])
   },
   computed: {
-    ...mapGetters(["products"])
+    ...mapGetters(["products"]),
+    cartProductsList() {
+      return this.$store.state.cart.cartProductsList;
+    }
   }
 };
 </script>
