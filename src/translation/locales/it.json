@@ -16,12 +16,14 @@
   "cart": {
     "count": "Numero",
     "count_cart": "Numero di prodotti nel carrello",
-    "remove": "Rimuovere"
+    "remove": "Rimuovere",
+    "amount": "Quantità"
   },
 
   "pdf": {
     "placeholder_pdf": "inserisci il nome PDF",
-    "button_pdf": "Scarica PDF"
+    "button_pdf": "Scarica PDF",
+    "no": "No."
   },
 
   "contact": {
@@ -30,6 +32,6 @@
     "contact_street_local": "Strada e locale",
     "contact_zip_code": "Kod pocztowy",
     "contact_city": "Città",
-    "contact_info": "informazioni aggiuntive"
+    "contact_info": "Informazioni per il venditore"
   }
 }

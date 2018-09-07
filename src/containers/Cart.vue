@@ -21,6 +21,9 @@
     <td><button @click="removeFromCart({product, productsList})" class='button'><label class='minus'>-</label></button></td>
   </tr>
 </table>
+<div class="amount">
+{{$t('lang.cart.amount')}}: {{amount(cartProductsList)}} $
+</div>
 <div class="data">
     <div class="address">
       <input type="text" id="name" v-model="name" class="input" v-bind:placeholder="$t('lang.contact.contact_name')" />
@@ -28,7 +31,7 @@
       <input type="text" id="street_locale" v-model="street_locale" class="input" v-bind:placeholder="$t('lang.contact.contact_street_local')" />
       <input type="text" id="zip_code" v-model="zip_code" class="input" v-bind:placeholder="$t('lang.contact.contact_zip_code')" />
       <input type="text" id="city" v-model="city" class="input" v-bind:placeholder="$t('lang.contact.contact_city')" />
-      <textarea rows="4" cols="50" type="text" id="info" v-model="info" class="input textarea" v-bind:placeholder="$t('lang.contact.contact_info')" />
+      <textarea maxlength="45" rows="4" cols="50" type="text" id="info" v-model="info" class="input textarea" v-bind:placeholder="$t('lang.contact.contact_info')" />
     </div>
     <div class="pdf">
       <input type="text" id="pdf_name" v-model="pdf_name" class="input" v-bind:placeholder="$t('lang.pdf.placeholder_pdf')" />
@@ -42,6 +45,8 @@
 import { mapGetters, mapActions, mapState } from "vuex";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import { sumBy, isEmpty } from "lodash";
+import i18n from '../translation/index.js'
 
 export default {
   name: "Cart",
@@ -58,12 +63,17 @@ export default {
   },
   methods: {
     ...mapActions(["getCartProductsList", "removeFromCart"]),
+    amount(cartProductsList) {
+      return isEmpty(cartProductsList)
+        ? 0
+        : sumBy(cartProductsList, p => p.price);
+    },
     generate_pdf(cartProductsList) {
       var columns = [
-        { title: "Lp.", dataKey: "lp" },
-        { title: "Name", dataKey: "name" },
-        { title: "Count", dataKey: "count" },
-        { title: "Price", dataKey: "price" }
+        { title: i18n.t('lang.pdf.no'), dataKey: "lp" },
+        { title: i18n.t('lang.productsList.name'), dataKey: "name" },
+        { title: i18n.t('lang.pdf.count'), dataKey: "count" },
+        { title: i18n.t('lang.productsList.price'), dataKey: "price" }
       ];
       var rows = [];
 
@@ -76,16 +86,32 @@ export default {
         });
       });
 
+      rows.push({
+        lp: "",
+        name: "",
+        count: i18n.t('lang.cart.amount'),
+        price: "$" + this.amount(cartProductsList)
+      });
+
       // Only pt supported (not mm or in)
       var doc = new jsPDF("p", "pt");
       doc.autoTable(columns, rows, {
         styles: { fillColor: [102, 153, 255] },
         columnStyles: {
-          // lp: { fillColor: 255 }
+          lp: { fontStyle: "bold" }
         },
-        margin: { top: 130 },
+        margin: { top: 160 },
         addPageContent: function(data) {
-          doc.text("Cart's products", 250, 30);
+          doc.text(i18n.t('lang.header.products_list'), 250, 30);
+        },
+        drawCell: function(cell, data) {
+          var rows = data.table.rows;
+          if (data.row.index == rows.length - 1) {
+            doc.setFillColor(200, 200, 255);
+            doc.setFontSize(10);
+            doc.setTextColor(40);
+            doc.setFontStyle("bold");
+          }
         }
       });
       doc.setFontSize(8);
@@ -106,7 +132,8 @@ export default {
         "\r\n" +
         this.city +
         "\r\n\r\n" +
-        "Info: " + this.info
+        i18n.t('lang.contact.contact_info') + ": " +
+        this.info
       );
     }
   },
@@ -212,5 +239,14 @@ tr:nth-child(even) {
   flex-direction: column;
   position: absolute;
   left: 20px;
+}
+
+.amount {
+  display: flex;
+  margin-top: 20px;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-size: 26px;
+  padding-right: 10px;
 }
 </style>

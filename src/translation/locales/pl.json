@@ -5,7 +5,7 @@
   },
 
   "productsList": {
-    "name": "Imię",
+    "name": "Nazwa",
     "image": "Zdjęcie",
     "description": "Opis",
     "price": "Cena",
@@ -16,12 +16,15 @@
   "cart": {
     "count": "Ilość",
     "count_cart": "Ilość produktów w koszyku",
-    "remove": "Usuń"
+    "remove": "Usuń",
+    "amount": "Suma"
   },
 
   "pdf": {
     "placeholder_pdf": "Wpisz nazwę PDF",
-    "button_pdf": "Pobierz PDF"
+    "button_pdf": "Pobierz PDF",
+    "no": "Lp.",
+    "count": "Ilosc"
   },
 
   "contact": {
@@ -30,6 +33,6 @@
     "contact_street_local": "Ulica i numer domu",
     "contact_zip_code": "Kod posztowy",
     "contact_city": "Miasto",
-    "contact_info": "Informacje dodatkowe"
+    "contact_info": "Informacje dla sprzedawcy"
   }
 }

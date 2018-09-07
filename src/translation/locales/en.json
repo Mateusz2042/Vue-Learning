@@ -16,12 +16,14 @@
   "cart": {
     "count": "Count",
     "count_cart": "Count of items cart",
-    "remove": "Remove"
+    "remove": "Remove",
+    "amount": "Amount"
   },
 
   "pdf": {
     "placeholder_pdf": "Enter PDF name",
-    "button_pdf": "Download PDF"
+    "button_pdf": "Download PDF",
+    "no": "No."
   },
 
   "contact": {
@@ -30,6 +32,6 @@
     "contact_street_local": "Street and local",
     "contact_zip_code": "Zip code",
     "contact_city": "City",
-    "contact_info": "Additional informations"
+    "contact_info": "Information for the seller"
   }
 }
