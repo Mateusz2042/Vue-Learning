@@ -2,7 +2,7 @@
 <div>
   <div class='searching'>
     <label class="label">Search:</label>
-    <input class="input" v-model="filterText" @change="getProducts(filterText)"/>
+    <input class="input" v-model="filterText" @change="getProducts(filterText)" @input="getProducts(filterText)"/>
   </div>
 <table>
   <tr>
