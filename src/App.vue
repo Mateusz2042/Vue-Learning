@@ -30,8 +30,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["setLanguage"])
-  },
+    setLanguage(lang) {
+        this.$store.dispatch("setLanguage", lang);
+        // this.$router.push('/cart');
+      }
+    }
 };
 </script>
 
@@ -98,5 +101,4 @@ nav {
 .flag:hover {
   height: 28px;
 }
-
 </style>

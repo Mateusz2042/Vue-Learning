@@ -7,5 +7,6 @@ export const mutations = {
     i18n.locale = data
     state.language = data
     localStorage.setItem('language', data)
+    console.log('Language', data)
   }
 }
