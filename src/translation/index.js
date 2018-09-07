@@ -3,6 +3,7 @@ import VueI18n from 'vue-i18n'
 
 import en from './locales/en.json'
 import pl from './locales/pl.json'
+import it from './locales/it.json'
 
 Vue.use(VueI18n)
 
@@ -14,6 +15,9 @@ export default new VueI18n({
     },
     pl: {
       lang: pl
+    },
+    it: {
+      lang: it
     }
   }
 })
