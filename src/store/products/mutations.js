@@ -11,9 +11,9 @@ export const mutations = {
   },
 
   ADD_TO_CART (state, { product, cartProductsList }) {
+    const unitPrice = find(state.productsList, p => p.id === product.id).price
     if (some(cartProductsList, p => p.id === product.id)) {
       const findingProduct = find(cartProductsList, p => p.id === product.id)
-      const unitPrice = find(state.productsList, p => p.id === product.id).price
       findingProduct.count += 1
       findingProduct.price = unitPrice * findingProduct.count
     } else {
@@ -23,6 +23,7 @@ export const mutations = {
         price: product.price,
         description: product.description,
         image: product.image,
+        unit_price: unitPrice,
         count: 1
       })
     }

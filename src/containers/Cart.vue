@@ -9,6 +9,7 @@
     <th>{{$t('lang.productsList.name')}}</th>
     <th>{{$t('lang.productsList.description')}}</th>
     <th>{{$t('lang.cart.count')}}</th>
+    <th>{{$t('lang.productsList.unit_price')}}</th>
     <th>{{$t('lang.productsList.price')}}</th>
     <th>{{$t('lang.cart.remove')}}</th>
   </tr>
@@ -17,6 +18,7 @@
     <td>{{product.name}}</td>
     <td>{{product.description}}</td>
     <td>{{product.count}}</td>
+    <td>$ {{product.unit_price}}</td>
     <td>$ {{product.price}}</td>
     <td><button @click="removeFromCart({product, productsList})" class='button'><label class='minus'>-</label></button></td>
   </tr>
@@ -35,7 +37,7 @@
     </div>
     <div class="pdf">
       <input type="text" id="pdf_name" v-model="pdf_name" class="input" v-bind:placeholder="$t('lang.pdf.placeholder_pdf')" />
-      <button class="button_pdf" @click="generate_pdf(cartProductsList)">{{$t('lang.pdf.button_pdf')}}</button>
+      <button class="button_pdf" @click="generate_pdf({cartProductsList, name, surname, street_locale, zip_code, city, info, pdf_name})">{{$t('lang.pdf.button_pdf')}}</button>
     </div>
   </div>
 </div>
@@ -43,10 +45,10 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
-import jsPDF from "jspdf";
-import "jspdf-autotable";
 import { sumBy, isEmpty } from "lodash";
-import i18n from '../translation/index.js'
+import i18n from "../translation/index.js";
+import { generate_pdf } from "../selectors/generatePdf.js";
+import { amount } from "../selectors/amount.js";
 
 export default {
   name: "Cart",
@@ -68,84 +70,19 @@ export default {
         ? 0
         : sumBy(cartProductsList, p => p.price);
     },
-    generate_pdf(cartProductsList) {
-      var columns = [
-        { title: i18n.t('lang.pdf.no'), dataKey: "lp" },
-        { title: i18n.t('lang.productsList.name'), dataKey: "name" },
-        { title: i18n.t('lang.pdf.count'), dataKey: "count" },
-        { title: i18n.t('lang.productsList.price'), dataKey: "price" }
-      ];
-      var rows = [];
-
-      cartProductsList.forEach((element, index) => {
-        rows.push({
-          lp: index + 1,
-          name: element.name,
-          count: element.count,
-          price: "$" + element.price
-        });
-      });
-
-      rows.push({
-        lp: "",
-        name: "",
-        count: i18n.t('lang.cart.amount'),
-        price: "$" + this.amount(cartProductsList)
-      });
-
-      // Only pt supported (not mm or in)
-      var doc = new jsPDF("p", "pt");
-      doc.autoTable(columns, rows, {
-        styles: { fillColor: [102, 153, 255] },
-        columnStyles: {
-          lp: { fontStyle: "bold" }
-        },
-        margin: { top: 160 },
-        addPageContent: function(data) {
-          doc.text(i18n.t('lang.header.products_list'), 250, 30);
-        },
-        drawCell: function(cell, data) {
-          var rows = data.table.rows;
-          if (data.row.index == rows.length - 1) {
-            doc.setFillColor(200, 200, 255);
-            doc.setFontSize(10);
-            doc.setTextColor(40);
-            doc.setFontStyle("bold");
-          }
-        }
-      });
-      doc.setFontSize(8);
-      doc.setTextColor(40);
-      doc.setFontStyle("normal");
-      doc.text(this.prepareContactData(), 250, 60);
-      doc.save(this.pdf_name + ".pdf");
-    },
-    prepareContactData() {
-      return (
-        this.name +
-        "\r\n" +
-        this.surname +
-        "\r\n" +
-        this.street_locale +
-        "\r\n" +
-        this.zip_code +
-        "\r\n" +
-        this.city +
-        "\r\n\r\n" +
-        i18n.t('lang.contact.contact_info') + ": " +
-        this.info
-      );
-    }
   },
   computed: {
     ...mapState({
       cartProductsList: state => state.cartProductsList,
       productsList() {
         return this.$store.state.products.productsList;
-      }
+      },
     }),
     cartProductsList() {
       return this.$store.state.cart.cartProductsList;
+    },
+    generate_pdf(param) {
+      generate_pdf(param)
     }
   }
 };

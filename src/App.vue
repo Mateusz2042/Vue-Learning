@@ -87,7 +87,7 @@ nav {
 
 .links:hover {
   color: white;
-  font-size: 26px;
+  transform: scale(1.3);
 }
 
 .links:visited {
@@ -101,6 +101,6 @@ nav {
 }
 
 .flag:hover {
-  height: 28px;
+ transform: scale(1.5);
 }
 </style>

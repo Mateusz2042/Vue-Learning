@@ -8,6 +8,7 @@
     "name": "Nazwa",
     "image": "Zdjęcie",
     "description": "Opis",
+    "unit_price": "Cena jednostkowa",
     "price": "Cena",
     "add": "Dodaj",
     "search": "Szukaj"

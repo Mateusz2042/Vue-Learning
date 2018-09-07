@@ -9,7 +9,7 @@
     <th>{{$t('lang.productsList.image')}}</th>
     <th>{{$t('lang.productsList.name')}}</th>
     <th>{{$t('lang.productsList.description')}}</th>
-    <th>{{$t('lang.productsList.price')}}</th>
+    <th>{{$t('lang.productsList.unit_price')}}</th>
     <th>{{$t('lang.productsList.add')}}</th>
   </tr>
   <tr v-for='product in products' v-bind:key="product.id">

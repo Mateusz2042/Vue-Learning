@@ -8,6 +8,7 @@
     "name": "Name",
     "image": "Image",
     "description": "Description",
+    "unit_price": "Unit price",
     "price": "Price",
     "add": "Add",
     "search": "Search"
