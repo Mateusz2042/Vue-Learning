@@ -1,3 +1,5 @@
+import { find } from 'lodash'
+
 export const mutations = {
 
   GET_ALL_CART_PRODUCTS_LIST (state) {
@@ -5,6 +7,10 @@ export const mutations = {
   },
 
   REMOVE_FROM_CART (state, product) {
-    state.cartProductsList.splice(state.cartProductsList.indexOf(product), 1)
+    if (product.count !== 1) {
+      find(state.cartProductsList, p => p.id === product.id).count -= 1
+    } else {
+      state.cartProductsList.splice(state.cartProductsList.indexOf(product), 1)
+    }
   }
 }
