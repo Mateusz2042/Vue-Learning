@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 
 export default {
   name: "Cart",
@@ -33,7 +33,9 @@ export default {
     ...mapActions(["getCartProductsList", "removeFromCart"])
   },
   computed: {
-    ...mapGetters(["cartProductsList"]),
+    ...mapState({
+      cartProductsList: state => state.cartProductsList
+    }),
     cartProductsList() {
       return this.$store.state.cart.cartProductsList;
     }
