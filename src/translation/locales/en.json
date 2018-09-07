@@ -1,0 +1,21 @@
+{
+  "header": {
+    "products_list": "Products List",
+    "cart": "Cart"
+  },
+
+  "productsList": {
+    "name": "Name",
+    "image": "Image",
+    "description": "Description",
+    "price": "Price",
+    "add": "Add",
+    "search": "Search"
+  },
+
+  "cart": {
+    "count": "Count",
+    "count_cart": "Count of items cart",
+    "remove": "Remove"
+  }
+}

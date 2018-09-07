@@ -1,0 +1,21 @@
+{
+  "header": {
+    "products_list": "Lista produktów",
+    "cart": "Koszyk"
+  },
+
+  "productsList": {
+    "name": "Imię",
+    "image": "Zdjęcie",
+    "description": "Opis",
+    "price": "Cena",
+    "add": "Dodaj",
+    "search": "Szukaj"
+  },
+
+  "cart": {
+    "count": "Ilość",
+    "count_cart": "Ilość produktów w koszyku",
+    "remove": "Usuń"
+  }
+}

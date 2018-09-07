@@ -1,8 +1,12 @@
 <template>
 <div>
   <nav>
-    <router-link class="route-one links" to="/">Products List</router-link>
-    <router-link class="route-two links" to="/cart">Cart ( {{cartProductsList.length}} )</router-link>
+    <div class="flags_container">
+      <img class="flag" src="../static/flags/pl.png" @click="setLanguage('pl')" />
+      <img class="flag" src="../static/flags/gb.png" @click="setLanguage('en')" />
+    </div>
+    <router-link class="route-one links" to="/">{{$t('lang.header.products_list')}}</router-link>
+    <router-link class="route-two links" to="/cart">{{$t('lang.header.cart')}} ( {{cartProductsList.length}} )</router-link>
   </nav>
   <div id="app">
     <div class="logo">
@@ -16,13 +20,18 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "App",
   computed: {
     cartProductsList() {
       return this.$store.state.cart.cartProductsList;
     }
-  }
+  },
+  methods: {
+    ...mapActions(["setLanguage"])
+  },
 };
 </script>
 
@@ -66,19 +75,28 @@ nav {
 }
 
 .links {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
- }
-
- .links:hover {
-  color: white;
-  font-size: 26px;
- }
-
- .links:visited {
   color: white;
   font-size: 20px;
- }
+  text-decoration: none;
+}
+
+.links:hover {
+  color: white;
+  font-size: 26px;
+}
+
+.links:visited {
+  color: white;
+  font-size: 20px;
+}
+
+.flags_container {
+  position: absolute;
+  right: 20px;
+}
+
+.flag:hover {
+  height: 28px;
+}
 
 </style>

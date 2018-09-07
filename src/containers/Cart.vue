@@ -1,16 +1,16 @@
 <template>
 <div>
   <div class="count">
-    Ilość elementów w koszyku: {{cartProductsList.length}}
+    {{$t('lang.cart.count_cart')}}: {{cartProductsList.length}}
   </div>
 <table>
   <tr>
-    <th>Image</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Count</th>
-    <th>Remove</th>
+    <th>{{$t('lang.productsList.image')}}</th>
+    <th>{{$t('lang.productsList.name')}}</th>
+    <th>{{$t('lang.productsList.description')}}</th>
+    <th>{{$t('lang.productsList.price')}}</th>
+    <th>{{$t('lang.cart.count')}}</th>
+    <th>{{$t('lang.cart.remove')}}</th>
   </tr>
   <tr v-for='product in cartProductsList' v-bind:key="product.id">
     <td><img v-bind:src='product.image'/></td>

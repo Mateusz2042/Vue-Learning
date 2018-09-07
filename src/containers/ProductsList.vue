@@ -1,16 +1,16 @@
 <template>
 <div>
   <div class='searching'>
-    <label class="label">Search:</label>
+    <label class="label">{{$t('lang.productsList.search')}}:</label>
     <input class="input" v-model="filterText" @change="getProducts(filterText)" @input="getProducts(filterText)"/>
   </div>
 <table>
   <tr>
-    <th>Image</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Add</th>
+    <th>{{$t('lang.productsList.image')}}</th>
+    <th>{{$t('lang.productsList.name')}}</th>
+    <th>{{$t('lang.productsList.description')}}</th>
+    <th>{{$t('lang.productsList.price')}}</th>
+    <th>{{$t('lang.productsList.add')}}</th>
   </tr>
   <tr v-for='product in products' v-bind:key="product.id">
     <td><img v-bind:src='product.image'/></td>
