@@ -22,5 +22,14 @@
   "pdf": {
     "placeholder_pdf": "Enter PDF name",
     "button_pdf": "Download PDF"
+  },
+
+  "contact": {
+    "contact_name": "Name",
+    "contact_surname": "Surname",
+    "contact_street_local": "Street and local",
+    "contact_zip_code": "Zip code",
+    "contact_city": "City",
+    "contact_info": "Additional informations"
   }
 }
