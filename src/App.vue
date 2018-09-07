@@ -32,6 +32,7 @@ export default {
   methods: {
     setLanguage(lang) {
         this.$store.dispatch("setLanguage", lang);
+        location.reload();
         // this.$router.push('/cart');
       }
     }
