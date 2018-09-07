@@ -17,5 +17,10 @@
     "count": "Numero",
     "count_cart": "Numero di prodotti nel carrello",
     "remove": "Rimuovere"
+  },
+
+  "pdf": {
+    "placeholder_pdf": "inserisci il nome PDF",
+    "button_pdf": "Scarica PDF"
   }
 }

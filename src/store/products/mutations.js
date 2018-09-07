@@ -11,8 +11,11 @@ export const mutations = {
   },
 
   ADD_TO_CART (state, { product, cartProductsList }) {
-    if (some(cartProductsList, product)) {
-      find(cartProductsList, p => p.id === product.id).count += 1
+    if (some(cartProductsList, p => p.id === product.id)) {
+      const findingProduct = find(cartProductsList, p => p.id === product.id)
+      const unitPrice = find(state.productsList, p => p.id === product.id).price
+      findingProduct.count += 1
+      findingProduct.price = unitPrice * findingProduct.count
     } else {
       cartProductsList.push({
         id: product.id,

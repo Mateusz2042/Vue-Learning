@@ -6,7 +6,7 @@ export const actions = {
     commit(types.GET_ALL_CART_PRODUCTS_LIST)
   },
 
-  removeFromCart ({ commit }, product) {
-    commit(types.REMOVE_FROM_CART, product)
+  removeFromCart ({ commit }, {product, productsList}) {
+    commit(types.REMOVE_FROM_CART, {product, productsList})
   }
 }

@@ -17,5 +17,10 @@
     "count": "Count",
     "count_cart": "Count of items cart",
     "remove": "Remove"
+  },
+
+  "pdf": {
+    "placeholder_pdf": "Enter PDF name",
+    "button_pdf": "Download PDF"
   }
 }

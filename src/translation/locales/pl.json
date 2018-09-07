@@ -17,5 +17,10 @@
     "count": "Ilość",
     "count_cart": "Ilość produktów w koszyku",
     "remove": "Usuń"
+  },
+
+  "pdf": {
+    "placeholder_pdf": "Wpisz nazwę PDF",
+    "button_pdf": "Pobierz PDF"
   }
 }
