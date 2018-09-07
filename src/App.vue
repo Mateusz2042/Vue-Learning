@@ -2,7 +2,7 @@
 <div>
   <nav>
     <router-link class="route-one links" to="/">Products List</router-link>
-    <router-link class="route-two links" to="/cart">Cart</router-link>
+    <router-link class="route-two links" to="/cart">Cart ( {{cartProductsList.length}} )</router-link>
   </nav>
   <div id="app">
     <div class="logo">
@@ -17,7 +17,12 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  computed: {
+    cartProductsList() {
+      return this.$store.state.cart.cartProductsList;
+    }
+  }
 };
 </script>
 
