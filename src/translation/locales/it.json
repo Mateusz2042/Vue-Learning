@@ -11,7 +11,8 @@
     "unit_price": "Prezzo unitario",
     "price": "Prezzo",
     "add": "Aggiungere",
-    "search": "Ricerca"
+    "search": "Ricerca",
+    "added_to_cart": "Aggiunto al carrello"
   },
 
   "cart": {

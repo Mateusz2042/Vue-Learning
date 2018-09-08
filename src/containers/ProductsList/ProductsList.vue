@@ -1,5 +1,10 @@
 <template>
 <div>
+<!-- ---------------------- -->
+  <div id="note">
+    {{$t('lang.productsList.added_to_cart')}}
+  </div>
+<!-- ---------------------- -->
   <div class='searching'>
     <label class="label">{{$t('lang.productsList.search')}}:</label>
     <input class="input" v-model="filterText" @change="getProducts(filterText)" @input="getProducts(filterText)"/>
@@ -84,5 +89,17 @@ input {
 .label {
   align-items: center;
   display: flex;
+}
+
+#note {
+  background-color: #b3ffd9;
+  height: 40px;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  float: right;
+  opacity: 0;
 }
 </style>
