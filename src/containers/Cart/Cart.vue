@@ -143,4 +143,25 @@ tr:nth-child(even) {
   font-size: 26px;
   padding-right: 10px;
 }
+
+@media screen and (max-width: 670px) {
+  .pdf {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 25%;
+  }
+
+  .pdf {
+    margin-top: 250px;
+  }
+
+  .button_pdf {
+    margin-top: 10px;
+  }
+
+  .input {
+    margin-left: 0px;
+  }
+}
 </style>
