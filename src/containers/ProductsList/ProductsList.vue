@@ -23,25 +23,7 @@
 </div>
 </template>
 
-<script>
-import { mapGetters, mapActions, mapState } from "vuex";
-
-export default {
-  name: "ProductsList",
-  mounted() {
-    this.getProducts();
-  },
-  methods: {
-    ...mapActions(["getProducts", "addToCart"])
-  },
-  computed: {
-    ...mapGetters(["products"]),
-    cartProductsList() {
-      return this.$store.state.cart.cartProductsList;
-    }
-  }
-};
-</script>
+<script src="./index.js" />
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>

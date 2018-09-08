@@ -16,29 +16,9 @@
     <router-view/>
   </div>
 </div>
-
-
 </template>
 
-<script>
-import { mapActions } from "vuex";
-
-export default {
-  name: "App",
-  computed: {
-    cartProductsList() {
-      return this.$store.state.cart.cartProductsList;
-    }
-  },
-  methods: {
-    setLanguage(lang) {
-        this.$store.dispatch("setLanguage", lang);
-        location.reload();
-        // this.$router.push('/cart');
-      }
-    }
-};
-</script>
+<script src="./index.js"/>
 
 <style>
 #app {

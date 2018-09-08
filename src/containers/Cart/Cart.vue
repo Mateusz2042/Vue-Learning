@@ -43,50 +43,7 @@
 </div>
 </template>
 
-<script>
-import { mapGetters, mapActions, mapState } from "vuex";
-import { sumBy, isEmpty } from "lodash";
-import i18n from "../translation/index.js";
-import { generate_pdf } from "../selectors/generatePdf.js";
-import { amount } from "../selectors/amount.js";
-
-export default {
-  name: "Cart",
-  data() {
-    return {
-      name: "",
-      surname: "",
-      street_locale: "",
-      zip_code: "",
-      city: "",
-      info: "",
-      pdf_name: ""
-    };
-  },
-  methods: {
-    ...mapActions(["getCartProductsList", "removeFromCart"]),
-    amount(cartProductsList) {
-      return isEmpty(cartProductsList)
-        ? 0
-        : sumBy(cartProductsList, p => p.price);
-    },
-  },
-  computed: {
-    ...mapState({
-      cartProductsList: state => state.cartProductsList,
-      productsList() {
-        return this.$store.state.products.productsList;
-      },
-    }),
-    cartProductsList() {
-      return this.$store.state.cart.cartProductsList;
-    },
-    generate_pdf(param) {
-      generate_pdf(param)
-    }
-  }
-};
-</script>
+<script src="./index.js" />
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
