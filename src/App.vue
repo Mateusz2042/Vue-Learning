@@ -7,14 +7,13 @@
       <img class="flag" src="../static/flags/it.png" @click="setLanguage('it')" />
     </div>
 <!-- --------------------- -->
-    <div id="menu"><img src="../static/images/menu.png" alt="menu" style="margin-left: 20%">
-      <div id="menu_content">
-        <img class="flag" src="../static/flags/pl.png" @click="setLanguage('pl')" />
-        <img class="flag" src="../static/flags/gb.png" @click="setLanguage('en')" />
-        <img class="flag" src="../static/flags/it.png" @click="setLanguage('it')" />
-      </div>
+    <div id="menu" @click="menu_open()"><img src="../static/images/menu.png" alt="menu"></div>
+    <div id="menu_content">
+      <img class="flag" src="../static/flags/pl.png" @click="setLanguage('pl')" />
+      <img class="flag" src="../static/flags/gb.png" @click="setLanguage('en')" />
+      <img class="flag" src="../static/flags/it.png" @click="setLanguage('it')" />
     </div>
-    <!-- ------ -->
+<!-- --------------------- -->
     <router-link class="route-one links" to="/">{{$t('lang.header.products_list')}}</router-link>
     <router-link class="route-two links" to="/cart">{{$t('lang.header.cart')}} ( {{cartProductsList.length}} )</router-link>
   </nav>
@@ -90,16 +89,25 @@ nav {
   display: block;
 }
 
+.flag {
+  border: 1px solid white;
+}
+
 .flag:hover {
   transform: scale(1.5);
 }
 
 #menu {
+  position: absolute;
+  right: 20px;
   display: none;
 }
 
 #menu_content {
-  display: flex;
+  position: absolute;
+  right: 15px;
+  margin-top: 60px;
+  display: none;
   flex-direction: column;
 }
 
@@ -113,22 +121,12 @@ nav {
   }
 
   #menu {
-    position: absolute;
-    right: 5px;
     display: block;
-    margin-top: 42px;
   }
 
-  #menu_content {
-    display: flex;
-    padding: 5px;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  #menu:hover + #menu_content {
-    /* TODO */
-  }
+  /* #menu:hover + #menu_content {
+    opacity: 1;
+  } */
 
   .route-one {
     margin-right: 5px;
@@ -146,5 +144,11 @@ nav {
   .flag {
     border: 1px solid white;
   }
+}
+
+@media screen and (min-width: 671px) {
+    #menu_content {
+      display: none;
+    }
 }
 </style>
