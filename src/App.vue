@@ -57,6 +57,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image:linear-gradient(#2c3e50, #42b983);
 }
 
 .route-one {
