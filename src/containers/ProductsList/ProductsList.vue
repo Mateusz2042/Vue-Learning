@@ -69,7 +69,7 @@ tr:nth-child(even) {
 }
 
 input {
-  width: 20%;
+  width: 220px;
 }
 
 .searching {

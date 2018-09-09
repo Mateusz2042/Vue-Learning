@@ -146,10 +146,4 @@ nav {
     border: 1px solid white;
   }
 }
-
-@media screen and (min-width: 671px) {
-    #menu_content {
-      display: none;
-    }
-}
 </style>
