@@ -30,11 +30,11 @@
     </div>
     <div class="data">
         <div class="address">
-          <input type="text" id="name" v-model="name" class="input" v-bind:placeholder="$t('lang.contact.contact_name')" />
-          <input type="text" id="surname" v-model="surname" class="input" v-bind:placeholder="$t('lang.contact.contact_surname')" />
-          <input type="text" id="street_locale" v-model="street_locale" class="input" v-bind:placeholder="$t('lang.contact.contact_street_local')" />
-          <input type="text" id="zip_code" v-model="zip_code" class="input" v-bind:placeholder="$t('lang.contact.contact_zip_code')" />
-          <input type="text" id="city" v-model="city" class="input" v-bind:placeholder="$t('lang.contact.contact_city')" />
+          <contact-input v-model="name" v-bind:placeholder="$t('lang.contact.contact_name')" />
+          <contact-input v-model="surname" v-bind:placeholder="$t('lang.contact.contact_surname')" />
+          <contact-input v-model="street_locale" v-bind:placeholder="$t('lang.contact.contact_street_local')" />
+          <contact-input v-model="zip_code" v-bind:placeholder="$t('lang.contact.contact_zip_code')" />
+          <contact-input v-model="city" v-bind:placeholder="$t('lang.contact.contact_city')" />
           <textarea maxlength="45" rows="4" cols="50" type="text" id="info" v-model="info" class="input textarea" v-bind:placeholder="$t('lang.contact.contact_info')" />
         </div>
         <div class="pdf">

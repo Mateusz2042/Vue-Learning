@@ -1,6 +1,7 @@
 import { mapActions, mapState } from 'vuex'
 import { sumBy, isEmpty } from 'lodash'
 import { generate_pdf } from '../../selectors/generatePdf.js'
+import ContactInput from '../../components/contactInput/ContactInput'
 
 export default {
   name: 'Cart',
@@ -14,6 +15,9 @@ export default {
       info: '',
       pdf_name: ''
     }
+  },
+  components: {
+    ContactInput
   },
   methods: {
     ...mapActions(['getCartProductsList', 'removeFromCart']),
