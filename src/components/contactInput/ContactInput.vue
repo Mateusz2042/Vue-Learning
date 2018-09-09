@@ -6,15 +6,5 @@
 <script src="./index.js"/>
 
 <style>
-.input {
-  margin-left: 10px;
-  border-radius: 6px;
-  outline: none;
-  height: 20px;
-  margin-top: 5px;
-}
-
-.input:focus {
-  border-bottom: 2px solid blue;
-}
+  @import './style.css';
 </style>

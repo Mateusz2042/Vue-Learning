@@ -13,25 +13,5 @@
 <script src="./index.js"/>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-.logo {
-  animation: logo 8s linear infinite;
-}
-
-@keyframes logo {
-  0% {
-    transform: rotateY(0);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
+  @import './style.css';
 </style>
